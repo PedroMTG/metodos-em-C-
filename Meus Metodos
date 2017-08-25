@@ -1,0 +1,175 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//inverte algorismos do tipo inteiro
+class Inverter
+    {
+        public int numero;
+        public int aux;
+
+        public int invert(int n)
+        {
+            if (n == 0)
+                return n;
+            else
+            {
+                Console.Write(n % 10);
+                n = n / 10;
+                return invert(n);
+            }
+            return 0;
+        }
+    }
+    
+    //soma de cada unidade do vetor
+    class Soma
+    {
+        public int SomaVet(int[] v, int n)
+        {
+            if (n == 0)
+                return 0;
+            else
+            {
+                return SomaVet(v, n - 1) + v[n - 1];
+            }
+
+        }
+    }
+    
+    //soma por recursão
+    class Soma
+    {
+        public int soma(int x)
+        {
+            if (x > 0)
+            {
+
+                if (x > 1)
+                {
+                    Console.Write(x + " + ");
+                }
+                else
+                {
+                    Console.Write(x + " = ");
+                }
+                return (x + soma(x - 1));
+
+            }
+            else return x;
+        }
+    }
+    
+    //recursão de k^n
+     class Rec
+    {
+        public int fatorial(int k, int n)
+        {
+            if (n == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return k * fatorial(k, n - 1);
+            }
+        }
+    }
+    
+    //inverte vetor por recursão
+    class invertVetor
+    {
+        public int inverte(int[] vetor, int p, int u)
+        {
+            int aux = 0;
+
+            //quando as duas variaveis de interação chegarem no meio do vetor ele para 
+            if (p <= 50 && u <= 50)
+            {
+                return 0;
+            }
+            else
+            {
+                aux = vetor[p];
+                vetor[p] = vetor[u];
+                vetor[u] = aux;
+                return inverte(vetor, p + 1, u - 1);
+            }
+        }
+    }
+    
+    //verifica quantas vezes k foi digitado em um termo
+    class VericaK
+    {
+        public int numero;
+        public int aux = 0;
+        public int k = 0;
+
+        public int verifica(int n)
+        {
+            if (n == 0)
+                return 0;
+            else
+            {
+                if (aux == (n % 10))
+                {
+                    k++;
+                }
+                n = n / 10;
+                return verifica(n);
+            }
+            return 0;
+        }
+    }
+    
+    //recursão para imprimir uma sequencia de numeros em ordem decrescente
+     public int imprimenumerosDecrescente(int n, int y)
+            {
+
+                Console.Write(n);
+                if (n > y)
+                {
+                    return imprimenumerosDecrescente(n - 1, y);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            
+            //pesquisa numero em um vetor por recursão
+            public static void pesquisarNumero(int x, int[] vetor)
+        {
+            int cont = 0;
+
+            for (cont = 0; cont < vetor.Length; cont++)
+            {
+                if (vetor[cont] == x)
+                {
+                    Console.Write("Encontrou o número : " + x + " na posição :" + cont);
+                    break;
+                }
+            }
+            if (cont >= vetor.Length)
+                Console.Write("Não encontrou o número : " + x);
+        }
+        
+        //pesquisa binaria
+        static int PesquisaBinaria(int x, int[] v, int ini, int fim)
+        {
+            int meio = (ini + fim) / 2;
+
+            if (v[meio] == x)
+                return meio;
+
+            if (ini >= fim)
+                return -1; // não encontrado
+
+            else
+                if (v[meio] < x)
+                return PesquisaBinaria(x, v, meio + 1, fim);
+            else
+                return PesquisaBinaria(x, v, ini, meio - 1);
+        }
